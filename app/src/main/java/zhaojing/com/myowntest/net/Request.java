@@ -56,8 +56,9 @@ public class Request {
                 ////////////////////////////////////////////////////////////////////Map嵌套
                 if(!response.equals(false)){
                    Map<String,Object> model=WrapperGson.gsonToMap(response);
-//                    User user=(User)model.get("data");
-                    call.callback(model.get("data").toString(),model.get("code").toString(),"xiami");
+                    User user=WrapperGson.gsonTobean(model.get("data").toString(),User.class);
+
+                    call.callback(user.getName(),user.getPwd(),"xiami");
                 }else{
                     call.backfalse();
                 }

@@ -65,4 +65,18 @@ public class WrapperGson {
 			t=wrapper.fromJson(json, new TypeToken<List<Map<String,T>>>(){}.getType());
 		return t;
 		}
+
+
+	/***
+	 * 复杂响应模型（Map嵌套）
+	 * @param json
+	 * @param <T>
+	 * @return
+	 */
+	public static <T> Response<T> gsonToResponse(String json,Class<T> clazz){
+		Response<T> t=null;
+		if(wrapper!=null)
+			t=wrapper.fromJson(json,new TypeToken<Response<T>>(){}.getType());
+		return t;
+	}
 }
