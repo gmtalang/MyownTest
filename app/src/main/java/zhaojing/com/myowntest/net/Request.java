@@ -1,18 +1,14 @@
 package zhaojing.com.myowntest.net;
 
-import android.content.Entity;
 
-import com.google.gson.Gson;
-
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Map;
 
 /**
  * Created by zhaojing on 2018-03-19.
@@ -41,14 +37,22 @@ public class Request {
             int statusCode=con.getResponseCode();
             if(statusCode==200){
                 String response=streamToString(con.getInputStream());
-               if(!response.equals(false)) {
-                   User user = new Gson().fromJson(response, User.class);
-                   //写一个回调函数
-                   call.callback(user.getName(), user.getPwd());
-               }else{
-                   call.backfalse();//错误的密码
-               }
-
+                ////////////////////////////////////////////////////////////////
+//               if(!response.equals(false)) {
+//                   User user = new Gson().fromJson(response, User.class);
+//                   //写一个回调函数
+//                   call.callback(user.getName(), user.getPwd());
+//               }else{
+//                   call.backfalse();//错误的密码
+//               }
+                ///////////////////////////////////////////////////////////////
+                if(!response.equals(false)){
+                    Map<String,String> result=null;
+                    result=WrapperGson.gsonToMap(response);
+                    call.callback(result.get("name"),result.get("relation"));
+                }else{
+                    call.backfalse();
+                }
             } else{
                 //其他的问题
             }
