@@ -1,0 +1,10 @@
+import com.sun.org.apache.xalan.internal.xsltc.cmdline.Compile
+
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+tasks.withType(JavaCompile){
+    options.encoding="UTF-8"
+}//解决编码GBK不可以映射字符的问题

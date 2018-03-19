@@ -1,6 +1,9 @@
 package zhaojing.com.myowntest;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -12,14 +15,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import zhaojing.com.myowntest.net.Request;
+import zhaojing.com.myowntest.net.RequestCallback;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private static String path="http://192.168.1.11:8080/web/servlets/servlet/FileUploadServlet";
+    private static Context mContext;
+    private MyHandler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mContext=this;
+        handler=new MyHandler();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -92,10 +104,53 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        }else if (id==R.id.nav_get){
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Request request=new Request(callback);
+                    String[] params={"zhaojing","123456"};
+                    request.get(path,params);
+                }
+            }).start();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private static class MyHandler extends Handler{
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 1:
+
+                case 0:
+                    Toast.makeText(mContext,msg.obj.toString(),Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+     RequestCallback callback =new RequestCallback() {
+         @Override
+         public void callback(String name, String pwd) {
+
+             System.out.println("thread------------"+Thread.currentThread().getName());
+             Message msg=Message.obtain();
+             msg.what=1;
+             msg.obj=name;
+             handler.sendMessage(msg);
+         }
+
+         @Override
+         public void backfalse() {
+             Message msg=Message.obtain();
+             msg.what=0;
+             msg.obj="flase";
+             handler.sendMessage(msg);
+         }
+     };
 }
