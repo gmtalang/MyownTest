@@ -27,6 +27,10 @@ public class User implements Serializable{
         this.pwd = pwd;
         this.relation=relation;
     }
+    public User(String name,String pwd){
+        this.name=name;
+        this.pwd=pwd;
+    }
 
     public String getName() {
         return name;

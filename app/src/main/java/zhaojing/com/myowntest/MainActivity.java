@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity
 
      RequestCallback callback =new RequestCallback() {
          @Override
-         public void callback(String name, String pwd) {
+         public void callback(String name, String pwd,String message) {
 
              System.out.println("thread------------"+Thread.currentThread().getName());
              Message msg=Message.obtain();

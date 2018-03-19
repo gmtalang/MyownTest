@@ -5,6 +5,6 @@ package zhaojing.com.myowntest.net;
  */
 public interface RequestCallback {
 
-    void callback(String name,String pwd);//返回成功
+    void callback(String name,String pwd,String message);//返回成功
     void backfalse();
 }

@@ -45,11 +45,19 @@ public class Request {
 //               }else{
 //                   call.backfalse();//错误的密码
 //               }
-                ///////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////Map版本
+//                if(!response.equals(false)){
+//                    Map<String,String> result=null;
+//                    result=WrapperGson.gsonToMap(response);
+//                    call.callback(result.get("name"),result.get("relation"));
+//                }else{
+//                    call.backfalse();
+//                }
+                ////////////////////////////////////////////////////////////////////Map嵌套
                 if(!response.equals(false)){
-                    Map<String,String> result=null;
-                    result=WrapperGson.gsonToMap(response);
-                    call.callback(result.get("name"),result.get("relation"));
+                   Map<String,Object> model=WrapperGson.gsonToMap(response);
+//                    User user=(User)model.get("data");
+                    call.callback(model.get("data").toString(),model.get("code").toString(),"xiami");
                 }else{
                     call.backfalse();
                 }
