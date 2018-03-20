@@ -53,12 +53,13 @@ public class Request {
 //                }else{
 //                    call.backfalse();
 //                }
-                ////////////////////////////////////////////////////////////////////Map嵌套
+                ////////////////////////////////////////////////////////////////////类型擦除解决
                 if(!response.equals(false)){
-                   Map<String,Object> model=WrapperGson.gsonToMap(response);
-                    User user=WrapperGson.gsonTobean(model.get("data").toString(),User.class);
-
-                    call.callback(user.getName(),user.getPwd(),"xiami");
+                   Response<UserMddel> model=WrapperGson.gsonToResponseEraseObject(response,UserMddel.class);
+//                    User user=WrapperGson.gsonTobean(model.getData().toString(), User.class);
+                    System.out.println(model.getCode());
+                    System.out.println(model.getMessage());
+                    call.callback(model.getData().getRelation(),"dfs","xiami");
                 }else{
                     call.backfalse();
                 }

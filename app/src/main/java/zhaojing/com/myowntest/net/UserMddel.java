@@ -2,7 +2,7 @@ package zhaojing.com.myowntest.net;
 
 /**
  * Created by Administrator on 2018-03-19.
- * 返回的user
+ * 返回的userModle
  */
 public class UserMddel extends Response<UserMddel>{
     public String name;
