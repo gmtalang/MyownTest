@@ -17,7 +17,6 @@ import java.util.Map;
 public class Request {
 
 
-
     static RequestCallback call;
 
     public  Request(RequestCallback call){
