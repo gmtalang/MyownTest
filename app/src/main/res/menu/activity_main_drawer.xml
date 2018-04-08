@@ -19,7 +19,21 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="Tools" />
     </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/own_surfaceview"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="OwnSurfaceView"/>
+        <item
+            android:id="@+id/recoder"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="recoder"/>
+        <item
+            android:id="@+id/player"
+            android:icon="@drawable/ic_menu_share"
+            android:title="player"/>
 
+    </group>
     <item android:title="Communicate">
         <menu>
             <item

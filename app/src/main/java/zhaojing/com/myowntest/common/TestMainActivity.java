@@ -1,4 +1,4 @@
-package zhaojing.com.myowntest.common.adapter;
+package zhaojing.com.myowntest.common;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,8 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import zhaojing.com.myowntest.R;
+import zhaojing.com.myowntest.common.MyViewPagerAdapter;
 
 /**
  * Created by Administrator on 2018-03-20.
@@ -22,7 +26,7 @@ public class TestMainActivity extends FragmentActivity{
     private ViewPager mViewPager;
     private MyViewPagerAdapter mPagerAdapter;
     private ArrayList<View> mPagerViewList;
-
+    private Map<Integer,String> conversation=new HashMap<>();
     private Handler mHandler;
     private void initView() {
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -30,7 +34,12 @@ public class TestMainActivity extends FragmentActivity{
     }
 
     private void initData() {
-
+        Iterator<Map.Entry<Integer,String>> it=conversation.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry<Integer,String> entry=it.next();
+            Integer key= entry.getKey();
+            if(key%2==0)it.remove();
+        }
         mPagerViewList = new ArrayList<>();
         View tab_one = LayoutInflater.from(this).inflate(R.layout.tab_news, null);
         mPagerViewList.add(tab_one);
@@ -103,6 +112,10 @@ public class TestMainActivity extends FragmentActivity{
         Message msg=mHandler.obtainMessage();
         msg.obj="123";
         mHandler.sendMessage(msg);
+
+    }
+
+     class InnerC{
 
     }
 }

@@ -1,4 +1,4 @@
-package zhaojing.com.myowntest.common.adapter;
+package zhaojing.com.myowntest.common;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;

@@ -1,13 +1,18 @@
 package zhaojing.com.myowntest;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.util.ArrayMap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -23,7 +28,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import zhaojing.com.myowntest.common.adapter.MyViewPagerAdapter;
+import zhaojing.com.myowntest.activity.SurfaceActivity;
+import zhaojing.com.myowntest.common.Constant;
+import zhaojing.com.myowntest.common.IMMediaRecoder;
+import zhaojing.com.myowntest.common.MyViewPagerAdapter;
+import zhaojing.com.myowntest.design.IMManager;
 import zhaojing.com.myowntest.net.Request;
 import zhaojing.com.myowntest.net.RequestCallback;
 
@@ -58,8 +67,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext=this;
-        initView();
-        initData();
+//        initView();
+//        initData();
         handler=new MyHandler();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -142,6 +151,12 @@ public class MainActivity extends AppCompatActivity
                     request.get(path,params);
                 }
             }).start();
+        }else if(id==R.id.own_surfaceview){
+            System.out.println(" start to debug surfaceview");
+            Intent it = new Intent(this, SurfaceActivity.class);
+            startActivity(it);
+        }else if(id==R.id.recoder){
+                permissionForM();// 开始录音的一些规则
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -183,5 +198,36 @@ public class MainActivity extends AppCompatActivity
          }
      };
 
+    private void permissionForM() {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    Constant.PERMISSIONS_REQUEST_FOR_AUDIO);
+        } else {
+            //开始录音
+            IMMediaRecoder.getInstance().init();
+           //30s自动结束
+        }
+
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == Constant.PERMISSIONS_REQUEST_FOR_AUDIO) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                //开始录音
+                //30s自动结束
+                IMMediaRecoder.getInstance().init();
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        IMMediaRecoder.getInstance().discardRecording();
+    }
 }
