@@ -1,6 +1,7 @@
 package zhaojing.com.myowntest;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -8,19 +9,19 @@ import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+//import android.support.design.widget.FloatingActionButton;
+//import android.support.design.widget.Snackbar;
+//import android.support.v4.app.ActivityCompat;
+//import android.support.v4.content.ContextCompat;
+//import android.support.v4.view.ViewPager;
+//import android.view.LayoutInflater;
+//import android.view.View;
+//import android.support.design.widget.NavigationView;
+//import android.support.v4.view.GravityCompat;
+//import android.support.v4.widget.DrawerLayout;
+//import android.support.v7.app.ActionBarDrawerToggle;
+//import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -37,7 +38,7 @@ import zhaojing.com.myowntest.net.Request;
 import zhaojing.com.myowntest.net.RequestCallback;
 
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends Activity{  /*AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static String path="http://192.168.1.11:8080/web/servlets/servlet/FileUploadServlet";
     private static Context mContext;
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.main_camera, menu);
         return true;
     }
 
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity
             Intent it = new Intent(this, SurfaceActivity.class);
             startActivity(it);
         }else if(id==R.id.recoder){
-                permissionForM();// ¿ªÊ¼Â¼ÒôµÄÒ»Ð©¹æÔò
+                permissionForM();//
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -207,9 +208,9 @@ public class MainActivity extends AppCompatActivity
                     new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     Constant.PERMISSIONS_REQUEST_FOR_AUDIO);
         } else {
-            //¿ªÊ¼Â¼Òô
+            //ï¿½ï¿½Ê¼Â¼ï¿½ï¿½
             IMMediaRecoder.getInstance().init();
-           //30s×Ô¶¯½áÊø
+           //30sï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½
         }
 
     }
@@ -217,8 +218,8 @@ public class MainActivity extends AppCompatActivity
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == Constant.PERMISSIONS_REQUEST_FOR_AUDIO) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                //¿ªÊ¼Â¼Òô
-                //30s×Ô¶¯½áÊø
+                //ï¿½ï¿½Ê¼Â¼ï¿½ï¿½
+                //30sï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½
                 IMMediaRecoder.getInstance().init();
             }
         }
@@ -229,5 +230,5 @@ public class MainActivity extends AppCompatActivity
     protected void onDestroy() {
         super.onDestroy();
         IMMediaRecoder.getInstance().discardRecording();
-    }
+    }*/
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--public.xml文件的作用是把对象资源 ID 写死-->
+<resources>
+    <public name="facing" type="attr"/>
+    <public name="aspectRatio" type="attr"/>
+    <public name="autoFocus" type="attr"/>
+    <public name="flash" type="attr"/>
+
+    <public name="Widget.CameraView" type="style"/>
+</resources>
