@@ -6,4 +6,8 @@
         <attr name="has_shadow" format="boolean"/>
         <attr name="has_divider" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="GifView">
+        <attr name="gif" format="reference"/>
+    </declare-styleable>
 </resources>

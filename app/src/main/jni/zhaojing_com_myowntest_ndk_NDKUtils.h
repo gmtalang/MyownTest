@@ -10,9 +10,9 @@ extern "C" {
 /*
  * Class:     zhaojing_com_myowntest_ndk_NDKUtils
  * Method:    getStringFromNative
- * Signature: (ILjava/lang/String;)I
+ * Signature: (II)Ljava/lang/String;
  */
-JNIEXPORT jint JNICALL Java_zhaojing_com_myowntest_ndk_NDKUtils_getStringFromNative
+JNIEXPORT jstring JNICALL Java_zhaojing_com_myowntest_ndk_NDKUtils_getStringFromNative
   (JNIEnv *, jobject, jint, jint);
 
 #ifdef __cplusplus

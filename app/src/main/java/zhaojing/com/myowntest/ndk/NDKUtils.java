@@ -1,5 +1,7 @@
 package zhaojing.com.myowntest.ndk;
 
+import android.content.Context;
+
 /**
  * AUTHOR：Created by Administrator on 2018-07-10 13:35
  * EMAIL:  2910763715@qq.com
@@ -9,5 +11,10 @@ package zhaojing.com.myowntest.ndk;
  */
 
 public class NDKUtils {
-    public native int getStringFromNative(int key,int name);
+
+    private Context tx;
+    // call method
+   public native String getStringFromNative(int key,int name);
+
+
 }
