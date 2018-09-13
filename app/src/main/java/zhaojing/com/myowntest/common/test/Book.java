@@ -6,6 +6,10 @@ package zhaojing.com.myowntest.common.test;
  */
 
 public class Book {
+
+    Book(int i){
+        System.out.println("book = xiaoshu ! ="+i);
+    }
     @Override
     protected void finalize() throws Throwable {
 //        super.finalize();
@@ -16,4 +20,6 @@ public class Book {
     }
 
 
+
 }
+
