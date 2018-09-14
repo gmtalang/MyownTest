@@ -3,11 +3,16 @@
 buildscript {
     repositories {
         mavenCentral()
-        jcenter()
+        jcenter(){url 'http://jcenter.bintray.com/'}
+        google()
+//        maven {
+//            url 'https://mvn.google.com/'
+//            name 'Google'
+//        }
         maven {
-            url 'https://mvn.google.com/'
-            name 'Google'
-        }
+                url 'http://maven.aliyun.com/nexus/content/groups/public/'
+            }
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
@@ -22,11 +27,8 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-        jcenter()
-        maven {
-            url 'https://mvn.google.com/'
-            name 'Google'
-        }
+        jcenter(){url 'http://jcenter.bintray.com/'}
+        google()
     }
 }
 

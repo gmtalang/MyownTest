@@ -17,7 +17,7 @@ public class AssociativeArray<K,V> {
 
     public void put(K key,V value){
         if(index >= pairs.length){
-            throw new ArrayIndexOutOfBoundsException();
+//            throw new ArrayIndexOutOfBoundsException();
             pairs[index++]= new Object[]{key,value};
         }
     }
@@ -49,7 +49,7 @@ public class AssociativeArray<K,V> {
         return result.toString();
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws ArrayIndexOutOfBoundsException{
         AssociativeArray<Integer,String> map = new AssociativeArray<Integer, String>(6);
         map.put(0,"blue");
         map.put(1,"white");
