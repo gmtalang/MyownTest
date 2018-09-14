@@ -15,7 +15,7 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void test_one(){
+    public void test_one(){// function variable is not the same
         int i=1;
         i++;//i must be initialized
         System.out.println("i = "+i);

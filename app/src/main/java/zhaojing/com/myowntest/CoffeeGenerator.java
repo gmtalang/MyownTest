@@ -33,9 +33,9 @@ public class CoffeeGenerator<A> implements Generator<Coffee> ,Iterable<Coffee>{
      * @param <T>
      * @return
      */
-    public static <T> List<T> makeList(T... args){
-
-    }
+//    public static <T> List<T> makeList(T... args){
+//
+//    }
 
     /***
      * fan xing function

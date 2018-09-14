@@ -1,1 +1,1 @@
-include ':app', ':webserver', ':library', ':bluetoothlibrary', ':lib', ':java_library'
+include ':app', ':webserver', ':library', ':bluetoothlibrary', ':lib', ':java_library', ':android_library'
