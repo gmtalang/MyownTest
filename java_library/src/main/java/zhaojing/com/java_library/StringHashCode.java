@@ -3,6 +3,8 @@ package zhaojing.com.java_library;
 /**
  * AUTHOR：Created by Administrator on 2018-09-14 14:01
  * EMAIL:  2910763715@qq.com
+ *
+ * based on to content , not its only
  */
 
 public class StringHashCode {

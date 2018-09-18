@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyownTest.iml" filepath="$PROJECT_DIR$/MyownTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android_library/android_library.iml" filepath="$PROJECT_DIR$/android_library/android_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/bluetoothlibrary/bluetoothlibrary.iml" filepath="$PROJECT_DIR$/bluetoothlibrary/bluetoothlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_library/java_library.iml" filepath="$PROJECT_DIR$/java_library/java_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/webserver/webserver.iml" filepath="$PROJECT_DIR$/webserver/webserver.iml" />

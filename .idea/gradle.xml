@@ -9,8 +9,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/android_library" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/bluetoothlibrary" />
+            <option value="$PROJECT_DIR$/java_library" />
+            <option value="$PROJECT_DIR$/lib" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/webserver" />
           </set>
