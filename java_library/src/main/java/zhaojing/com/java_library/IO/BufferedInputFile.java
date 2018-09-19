@@ -15,14 +15,15 @@ public class BufferedInputFile {
 
     public static void main(String[] args) throws
             IOException {
-        long before = System.currentTimeMillis();
+        long before = System.nanoTime();
         System.out.println(read("README.md"));
 
-        long now = System.currentTimeMillis();
+        long now = System.nanoTime();
+        double duration = now - before;
         System.out.println("before = "+before);
         System.out.println("now = "+now);
         System.out.println("time = "+(now-before));
-
+        System.out.println("duration = "+duration);
     }
 
     public static String read(String filename) throws IOException {
