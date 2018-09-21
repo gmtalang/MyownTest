@@ -14,20 +14,20 @@ public class SynchronizedEvenGenerator  {
 
     public  void write_a(){
         System.out.println(Thread.currentThread().getName());
-        while (a<10000) {
+
             a++;
             System.out.println(" a = " + a);
 
-        }
+
     }
 
-    public void read_a(){
+    public  void cachu_a(){
         System.out.println(Thread.currentThread().getName());
-        while(a<1000) {
+            a=0;
             if (keshi) {
                 System.out.println(" read a = " + a);
             }
-        }
+
     }
 
     public static void main(String[] args){
@@ -36,20 +36,26 @@ public class SynchronizedEvenGenerator  {
         exec.execute(new Runnable() {
             @Override
             public void run() {
+                int i=0;
+                while(i<500)
                 even.write_a();
+                i++;
             }
         });
         exec.execute(new Runnable() {
             @Override
             public void run() {
-                even.read_a();
+                int i=0;
+                while(i<100)
+                even.cachu_a();
+                i++;
             }
         });
-        exec.execute(new Runnable() {
-            @Override
-            public void run() {
-                even.write_a();
-            }
-        });
+//        exec.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                even.write_a();
+//            }
+//        });
     }
 }
