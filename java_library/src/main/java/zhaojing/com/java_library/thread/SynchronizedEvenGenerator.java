@@ -12,7 +12,7 @@ public class SynchronizedEvenGenerator  {
     private int a=1;
     private boolean keshi=true;
 
-    public  void write_a(){
+    public synchronized void write_a(){
         System.out.println(Thread.currentThread().getName());
 
             a++;
@@ -21,7 +21,7 @@ public class SynchronizedEvenGenerator  {
 
     }
 
-    public  void cachu_a(){
+    public synchronized void cachu_a(){
         System.out.println(Thread.currentThread().getName());
             a=0;
             if (keshi) {
